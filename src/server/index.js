@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import compression from 'compression';
 import config from './config';
+import renderer from './renderer';
 
 const knex = Knex(config.database);
 Model.knex(knex);
@@ -18,9 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('dist', { maxAge: '1y' }));
 
-app.get('*', (req, res) => {
-  res.sendStatus(200);
-});
+app.get('*', renderer);
 
 const port = config.port || '9001';
 

@@ -39,6 +39,14 @@
     "lodash": "^4.17.10",
     "morgan": "^1.9.0",
     "objection": "^1.2.6",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0"
   }
 }

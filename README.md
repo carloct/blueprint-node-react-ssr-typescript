@@ -3,5 +3,5 @@
 #### Content
 
 - Node + express backend
-- React (wip)
+- React / Redux / SSR (wip)
 - Postgres
