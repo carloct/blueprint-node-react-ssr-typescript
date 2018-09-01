@@ -1,9 +1,10 @@
 import React from 'react';
+import { StaticRouter } from 'react-router';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
-import { Main } from '../client/components/Main';
+import { App } from '../client/components/App';
 import rootReducer from '../client/store/reducers';
 
 const renderer = (req, res) => {
@@ -16,7 +17,7 @@ const renderer = (req, res) => {
   const appString = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
-        <Main />
+        <App />
       </StaticRouter>
     </Provider>
   );
