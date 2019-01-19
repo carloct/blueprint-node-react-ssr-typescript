@@ -1,3 +1,11 @@
+# Modules
 node_modules
-.vscode
+
+# Generated
 frontend/dist
+
+# Editor
+.vscode
+
+# OS crap
+.DS_Store
