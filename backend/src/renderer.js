@@ -4,8 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
-import { App } from '../client/components/App';
-import rootReducer from '../client/store/reducers';
+import { App } from '../frontend/components/App';
+import rootReducer from '../frontend/store/reducers';
 
 const renderer = (req, res) => {
   const store = createStore(rootReducer, req.initialState);

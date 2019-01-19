@@ -1,26 +1,28 @@
 import express from 'express';
-import Knex from 'knex';
-import { Model } from 'objection';
 import helmet from 'helmet';
 import logger from 'morgan';
 import compression from 'compression';
-import config from './config';
 import renderer from './renderer';
 
-const knex = Knex(config.database);
-Model.knex(knex);
+import config from './config/server.json';
 
 const app = express();
-app.use(helmet());
-app.use(logger('tiny'));
+const isProduction = process.env.NODE_ENV === 'production';
+const port = process.env.PORT || config.http_port;
+
+if (isProduction) {
+  app.use(helmet);
+  app.disable('x-powered-by');
+  app.use(logger('combined'));
+  app.set('trust proxy', 1);
+}
+
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('dist', { maxAge: '1y' }));
 
 app.get('*', renderer);
-
-const port = config.port || '9001';
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server listening on port ${port}`);

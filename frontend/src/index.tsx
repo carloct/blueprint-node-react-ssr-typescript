@@ -12,6 +12,6 @@ ReactDOM.hydrate(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('root')
 );
 /* eslint-enable */

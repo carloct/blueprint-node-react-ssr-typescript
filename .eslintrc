@@ -13,6 +13,10 @@
     "sourceType": "module"
   },
   "rules": {
-    "react/prefer-stateless-function": false
+    "react/prefer-stateless-function": false,
+    "indent": [
+      "error",
+      2
+    ]
   }
 }
